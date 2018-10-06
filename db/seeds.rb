@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+posts = Post.create([
+  { command: 'ls-l', message: 'スペースうぅ' }, 
+  { command: 'sl', message: 'あああああああ' }, 
+  { command: 'sudo rm -rf /', message: 'うわぁぁぁぁ' }
+])
