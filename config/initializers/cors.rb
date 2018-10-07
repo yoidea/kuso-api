@@ -9,7 +9,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins 'majikuso.herokuapp.com', 'localhost:3001'
 
-    resource 'posts',
+    resource '*',
       headers: :any,
       methods: [:get, :post]
   end
