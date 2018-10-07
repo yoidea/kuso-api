@@ -1,24 +1,57 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requirements
+- Ruby 2.5
+- something
 
-Things you may want to cover:
+## Run
 
-* Ruby version
+```bash
+bundle install
+bin/rails db:migrate
+bin/rails server -p $PORT
+```
 
-* System dependencies
+## Endpoint
 
-* Configuration
+### GET /posts
 
-* Database creation
+```bash
+curl /posts | jq
+[
+  {
+    "id": 1,
+    "command": "ls-l",
+    "message": "スペースうぅ",
+    "created_at": "2018-10-06T05:08:44.394Z",
+    "updated_at": "2018-10-06T05:08:44.394Z"
+  },
+  {
+    "id": 2,
+    "command": "sl",
+    "message": "あああああああ",
+    "created_at": "2018-10-06T05:08:44.410Z",
+    "updated_at": "2018-10-06T05:08:44.410Z"
+  },
+  {
+    "id": 3,
+    "command": "sudo rm -rf /",
+    "message": "マジクソ",
+    "created_at": "2018-10-06T05:08:44.426Z",
+    "updated_at": "2018-10-06T05:08:44.426Z"
+  }
+]
+```
 
-* Database initialization
+### POST /posts
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+curl -X POST localhost:3000/posts -d "command=cd&message=oh" | jq
+{
+  "id": 3,
+  "command": "cd",
+  "message": "oh",
+  "created_at": "2018-10-06T05:08:44.426Z",
+  "updated_at": "2018-10-06T05:08:44.426Z"
+}
+```
